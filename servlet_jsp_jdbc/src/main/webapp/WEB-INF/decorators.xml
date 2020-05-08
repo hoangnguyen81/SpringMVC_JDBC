@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/decorators">
+ 
+ 	<decorators name="building" page="building.jsp">
+ 		<pattern>/building</pattern>
+ 	</decorators>
+ 	
+ 	 	<decorators name="building_edit" page="building_edit.jsp">
+ 		<pattern>/building_edit</pattern>
+ 	</decorators>
+ 
+</decorators>

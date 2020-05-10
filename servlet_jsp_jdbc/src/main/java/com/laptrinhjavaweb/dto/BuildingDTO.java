@@ -4,7 +4,7 @@ public class BuildingDTO {
 
 	private String name;
 	private String ward;
-	private long id;
+	private Long id;
 	
 	public String getName() {
 		return name;
@@ -20,10 +20,10 @@ public class BuildingDTO {
 	public void setWard(String ward) {
 		this.ward = ward;
 	}
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 }

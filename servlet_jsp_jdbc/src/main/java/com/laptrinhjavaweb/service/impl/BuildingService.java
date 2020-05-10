@@ -34,5 +34,33 @@ public class BuildingService implements IBuildingService{
 		buildingDTO.setWard(buildingEntity.getWard());
 		return buildingDTO;
 	}
-
+	@Override
+	public void Update(BuildingDTO buildingDTO) {
+		// TODO Auto-generated method stub
+		BuildingEntity buildingEntity = new BuildingEntity();
+		buildingEntity.setId(buildingDTO.getId());
+		buildingEntity.setName(buildingDTO.getName());
+		buildingEntity.setWard(buildingDTO.getWard());
+		buildingRepository.Update(buildingEntity);
+	}
+	@Override
+	public void insert(BuildingDTO buildingDTO) {
+		// TODO Auto-generated method stub
+		BuildingEntity buildingEntity = new BuildingEntity();
+		buildingEntity.setName(buildingDTO.getName());
+		buildingEntity.setWard(buildingDTO.getWard());
+		buildingRepository.insert(buildingEntity);
+	}
+	@Override
+	public void deleteById(Long id) {
+		// TODO Auto-generated method stub
+		BuildingEntity buildingEntity = new BuildingEntity();
+		buildingEntity.setId(id);
+		buildingRepository.deleteById(buildingEntity.getId());
+	}
+	@Override
+	public void deleteByCondition(String sql) {
+		// TODO Auto-generated method stub
+		buildingRepository.deleteByCondition(sql);
+	}
 }

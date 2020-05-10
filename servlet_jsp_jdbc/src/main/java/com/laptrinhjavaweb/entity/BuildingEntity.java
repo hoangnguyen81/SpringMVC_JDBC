@@ -12,7 +12,7 @@ public class BuildingEntity {
 	@Column(name = "ward")
 	private String ward;
 	@Column(name = "id")
-	private long id;
+	private Long id;
 
 	public void setName(String name) {
 		this.name = name;
@@ -34,7 +34,7 @@ public class BuildingEntity {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 }

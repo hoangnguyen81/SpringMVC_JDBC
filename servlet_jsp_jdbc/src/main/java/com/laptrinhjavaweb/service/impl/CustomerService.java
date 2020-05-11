@@ -36,4 +36,36 @@ public class CustomerService implements ICustomerService {
 		customerDTO.setEmail(customerEntity.getEmail());
 		return customerDTO;
 	}
+	
+	@Override
+	public void Update(CustomerDTO customerDTO) {
+		// TODO Auto-generated method stub
+		CustomerEntity customerEntity = new CustomerEntity();
+		customerDTO.setId(customerEntity.getId());
+		customerDTO.setFullname(customerEntity.getFullname());
+		customerDTO.setPhone(customerEntity.getPhone());
+		customerDTO.setEmail(customerEntity.getEmail());
+		customerRepository.Update(customerEntity);
+	}
+	@Override
+	public void insert(CustomerDTO customerDTO) {
+		// TODO Auto-generated method stub
+		CustomerEntity customerEntity = new CustomerEntity();
+		customerDTO.setFullname(customerEntity.getFullname());
+		customerDTO.setPhone(customerEntity.getPhone());
+		customerDTO.setEmail(customerEntity.getEmail());
+		customerRepository.insert(customerEntity);
+	}
+	@Override
+	public void deleteById(Long id) {
+		// TODO Auto-generated method stub
+		CustomerEntity customerEntity = new CustomerEntity();
+		customerEntity.setId(id);
+		customerRepository.deleteById(customerEntity.getId());
+	}
+	@Override
+	public void deleteByCondition(String sql) {
+		// TODO Auto-generated method stub
+		customerRepository.deleteByCondition(sql);
+	}
 }

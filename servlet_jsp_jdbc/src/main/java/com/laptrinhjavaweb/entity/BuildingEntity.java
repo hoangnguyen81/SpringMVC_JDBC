@@ -13,6 +13,8 @@ public class BuildingEntity {
 	private String ward;
 	@Column(name = "id")
 	private Long id;
+	@Column(name = "district")
+	private String district;
 
 	public void setName(String name) {
 		this.name = name;
@@ -30,11 +32,19 @@ public class BuildingEntity {
 		return this.ward;
 	}
 
-	public long getId() {
-		return id;
+	public Long getId() {
+		return this.id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	public String getDistrict() {
+		return this.district;
+	}
+
+	public void setDistrict(String district) {
+		this.district = district;
 	}
 }

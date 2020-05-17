@@ -5,10 +5,12 @@ D:\SpringMVC_JDBC\servlet_jsp_jdbc\src\main\java\com\laptrinhjavaweb\dto\Custome
 D:\SpringMVC_JDBC\servlet_jsp_jdbc\src\main\java\com\laptrinhjavaweb\repository\impl\BuildingRepository.java
 D:\SpringMVC_JDBC\servlet_jsp_jdbc\src\main\java\com\laptrinhjavaweb\controller\BuildingController.java
 D:\SpringMVC_JDBC\servlet_jsp_jdbc\src\main\java\com\laptrinhjavaweb\service\impl\CustomerService.java
+D:\SpringMVC_JDBC\servlet_jsp_jdbc\src\main\java\com\laptrinhjavaweb\enums\DistrictEnum.java
 D:\SpringMVC_JDBC\servlet_jsp_jdbc\src\main\java\com\laptrinhjavaweb\service\IBuildingService.java
 D:\SpringMVC_JDBC\servlet_jsp_jdbc\src\main\java\com\laptrinhjavaweb\annotation\Column.java
 D:\SpringMVC_JDBC\servlet_jsp_jdbc\src\main\java\com\laptrinhjavaweb\repository\ICustomerRepository.java
 D:\SpringMVC_JDBC\servlet_jsp_jdbc\src\main\java\com\laptrinhjavaweb\repository\IBuildingRepository.java
+D:\SpringMVC_JDBC\servlet_jsp_jdbc\src\main\java\com\laptrinhjavaweb\converter\BuildingConverter.java
 D:\SpringMVC_JDBC\servlet_jsp_jdbc\src\main\java\com\laptrinhjavaweb\controller\CustomerController.java
 D:\SpringMVC_JDBC\servlet_jsp_jdbc\src\main\java\com\laptrinhjavaweb\entity\CustomerEntity.java
 D:\SpringMVC_JDBC\servlet_jsp_jdbc\src\main\java\com\laptrinhjavaweb\service\impl\BuildingService.java

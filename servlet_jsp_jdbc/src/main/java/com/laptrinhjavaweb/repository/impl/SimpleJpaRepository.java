@@ -26,7 +26,7 @@ public class SimpleJpaRepository<T> implements ISimpleJpaRepository<T> {
 	static final String DB_URL = "jdbc:mysql://localhost:3306/estate32020modulepart1";
 	// Database credentials
 	static final String USER = "root";
-	static final String PASS = "1234";
+	static final String PASS = "HLTCa4fc48080197@#@";
 	@SuppressWarnings("unchecked")
 	Class<T> tClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
 	List<T> result = new ArrayList<T>();
@@ -136,7 +136,7 @@ public class SimpleJpaRepository<T> implements ISimpleJpaRepository<T> {
 							if (field.isAnnotationPresent(Column.class)) {
 								Column column = field.getAnnotation(Column.class);
 								if (column.name().equals(columnName) && columnValue != null) {
-									BeanUtils.setProperty(objectTemp, field.getName(), columnValue);
+									BeanUtils.setProperty(object, field.getName(), columnValue);
 									break;
 								}
 							}
@@ -356,7 +356,7 @@ public class SimpleJpaRepository<T> implements ISimpleJpaRepository<T> {
 			}
 		}
 		fields.deleteCharAt(fields.length() - 1); // Delete the last "," in the fields: name=?,ward=?;
-		String sql = "UPDATE " + tableName + " SET " + fields.toString() + " WHERE id=?";
+		String sql = "UPDATE " + tableName + " SET " + fields.toString() + " WHERE id= "+idTemp.toString()+"";
 		return sql;
 	}
 }

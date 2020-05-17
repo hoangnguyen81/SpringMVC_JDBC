@@ -5,6 +5,7 @@ public class BuildingDTO {
 	private String name;
 	private String ward;
 	private Long id;
+	private String district;
 	
 	public String getName() {
 		return name;
@@ -21,9 +22,16 @@ public class BuildingDTO {
 		this.ward = ward;
 	}
 	public Long getId() {
-		return id;
+		return this.id;
 	}
 	public void setId(Long id) {
 		this.id = id;
 	}
+	public String getDistrict() {
+		return district;
+	}
+	public void setDistrict(String district) {
+		this.district = district;
+	}
+	
 }

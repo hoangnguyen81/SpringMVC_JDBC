@@ -3,6 +3,7 @@ package com.laptrinhjavaweb.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.laptrinhjavaweb.converter.BuildingConverter;
 import com.laptrinhjavaweb.dto.BuildingDTO;
 import com.laptrinhjavaweb.entity.BuildingEntity;
 import com.laptrinhjavaweb.repository.IBuildingRepository;
@@ -11,15 +12,19 @@ import com.laptrinhjavaweb.service.IBuildingService;
 
 public class BuildingService implements IBuildingService{
 	IBuildingRepository buildingRepository = new BuildingRepository();
+	BuildingConverter buildingConverter = new BuildingConverter();
 	@Override
 	public List<BuildingDTO> findAll() {
 		List<BuildingDTO> listBuildingDTOs = new ArrayList<BuildingDTO>();
 		List<BuildingEntity> listBuildingEntities = new ArrayList<BuildingEntity>();
 		listBuildingEntities = buildingRepository.findAll();
 		for(BuildingEntity item : listBuildingEntities) {
-			BuildingDTO buildingDTO = new BuildingDTO();
-			buildingDTO.setName(item.getName());
-			buildingDTO.setWard(item.getWard());
+//			BuildingDTO buildingDTO = new BuildingDTO();
+//			buildingDTO.setId(item.getId());
+//			buildingDTO.setName(item.getName());
+//			buildingDTO.setWard(item.getWard());
+//			buildingDTO.setDistrict(item.getDistrict());
+			BuildingDTO buildingDTO = buildingConverter.convertToDTO(item);
 			listBuildingDTOs.add(buildingDTO);
 		}
 		return listBuildingDTOs;

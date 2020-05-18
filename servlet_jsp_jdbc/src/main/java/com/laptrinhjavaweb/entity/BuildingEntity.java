@@ -11,10 +11,11 @@ public class BuildingEntity {
 	private String name;
 	@Column(name = "ward")
 	private String ward;
-	@Column(name = "id")
-	private Long id;
 	@Column(name = "district")
 	private String district;
+	@Column(name = "id")
+	private Long id;
+
 
 	public void setName(String name) {
 		this.name = name;

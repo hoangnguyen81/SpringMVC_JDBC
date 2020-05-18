@@ -81,8 +81,7 @@ public class BuildingController extends HttpServlet {
 
 		// update() method
 		buildingDTO.setId(1L);
-		buildingDTO.setName("Test");
-		buildingDTO.setWard("test");
+		buildingDTO.setName("BBB");
 		buildingService.Update(buildingDTO);
 	}
 }

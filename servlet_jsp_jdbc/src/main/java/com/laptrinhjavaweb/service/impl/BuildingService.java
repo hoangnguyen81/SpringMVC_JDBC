@@ -46,6 +46,7 @@ public class BuildingService implements IBuildingService{
 		buildingEntity.setId(buildingDTO.getId());
 		buildingEntity.setName(buildingDTO.getName());
 		buildingEntity.setWard(buildingDTO.getWard());
+		buildingEntity.setDistrict(buildingDTO.getDistrict());
 		buildingRepository.Update(buildingEntity);
 	}
 	@Override

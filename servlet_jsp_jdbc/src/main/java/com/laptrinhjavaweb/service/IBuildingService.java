@@ -11,4 +11,5 @@ public interface IBuildingService {
 	void insert(BuildingDTO buildingDTO);
 	void deleteById(Long id);
 	void deleteByCondition(String sql);
+	
 }

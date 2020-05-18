@@ -47,7 +47,7 @@ public class SimpleJpaRepository<T> implements ISimpleJpaRepository<T> {
 
 	}
 
-	public List<T> findAll() {
+	public List<T> findAll(Object...sqlObjects) {
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -63,7 +63,14 @@ public class SimpleJpaRepository<T> implements ISimpleJpaRepository<T> {
 				Table table = tClass.getAnnotation(Table.class);
 				tableName = table.name();
 			}
-			String sql = "select * from " + tableName;
+			//String sql = "select * from " + tableName;
+			String sql = null;
+			if(sqlObjects != null && sqlObjects.length >= 1) {
+				sql = (String)sqlObjects[0];
+			}
+			else {
+				sql = "select * from " + tableName;
+			}
 			rs = stmt.executeQuery(sql);
 			if (tClass.isAnnotationPresent(Entity.class)) {
 				ResultSetMetaData resultSetMetaData = rs.getMetaData();
@@ -351,12 +358,12 @@ public class SimpleJpaRepository<T> implements ISimpleJpaRepository<T> {
 				if (!column.name().equals("id")) {
 					fields.append(column.name()).append("=?,");
 				} else {
-					idTemp.append(column.name());
+					idTemp.append(column.name()).append("=?");
 				}
 			}
 		}
 		fields.deleteCharAt(fields.length() - 1); // Delete the last "," in the fields: name=?,ward=?;
-		String sql = "UPDATE " + tableName + " SET " + fields.toString() + " WHERE id= "+idTemp.toString()+"";
+		String sql = "UPDATE " + tableName + " SET " + fields.toString() + " WHERE id = ?";
 		return sql;
 	}
 }

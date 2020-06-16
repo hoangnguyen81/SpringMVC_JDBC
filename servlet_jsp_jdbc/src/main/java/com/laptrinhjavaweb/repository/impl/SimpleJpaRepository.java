@@ -47,31 +47,23 @@ public class SimpleJpaRepository<T> implements ISimpleJpaRepository<T> {
 
 	}
 
-	public List<T> findAll(Object...sqlObjects) {
+	public List<T> findAll( Object ... where) {
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
 		try {
-			Class.forName(JDBC_DRIVER);
-			System.out.println("Connecting to database...");
-			conn = DriverManager.getConnection(DB_URL, USER, PASS);
-			System.out.println("Connected to database successfull...");
-			System.out.println("Creating a statement...");
-			stmt = conn.createStatement();
-			String tableName = "";
+
+			stmt = getConnection().createStatement();
+			String tableName ="";
 			if (tClass.isAnnotationPresent(Table.class)) {
 				Table table = tClass.getAnnotation(Table.class);
 				tableName = table.name();
 			}
-			//String sql = "select * from " + tableName;
-			String sql = null;
-			if(sqlObjects != null && sqlObjects.length >= 1) {
-				sql = (String)sqlObjects[0];
+			StringBuilder builder = new StringBuilder("select * from " + tableName + " b where 1 = 1 " );
+			if(where != null && where.length >= 1) {
+				builder.append(where[0]);
 			}
-			else {
-				sql = "select * from " + tableName;
-			}
-			rs = stmt.executeQuery(sql);
+			rs = stmt.executeQuery(builder.toString());
 			if (tClass.isAnnotationPresent(Entity.class)) {
 				ResultSetMetaData resultSetMetaData = rs.getMetaData();
 				Field[] fields = tClass.getDeclaredFields();
@@ -351,14 +343,11 @@ public class SimpleJpaRepository<T> implements ISimpleJpaRepository<T> {
 			tableName = table.name();
 		}
 		StringBuilder fields = new StringBuilder("");
-		StringBuilder idTemp = new StringBuilder("");
 		for (Field field : tClass.getDeclaredFields()) {
 			if (field.isAnnotationPresent(Column.class)) {
 				Column column = field.getAnnotation(Column.class);
 				if (!column.name().equals("id")) {
 					fields.append(column.name()).append("=?,");
-				} else {
-					idTemp.append(column.name()).append("=?");
 				}
 			}
 		}

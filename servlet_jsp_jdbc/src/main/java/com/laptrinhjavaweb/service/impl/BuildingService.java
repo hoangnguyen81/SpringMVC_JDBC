@@ -1,8 +1,12 @@
 package com.laptrinhjavaweb.service.impl;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import com.laptrinhjavaweb.builder.BuildingSearchBuilder;
 import com.laptrinhjavaweb.converter.BuildingConverter;
 import com.laptrinhjavaweb.dto.BuildingDTO;
 import com.laptrinhjavaweb.entity.BuildingEntity;
@@ -29,6 +33,40 @@ public class BuildingService implements IBuildingService{
 		}
 		return listBuildingDTOs;
 	}
+
+    @Override
+    public List<BuildingDTO> finaAll(BuildingSearchBuilder builder) {
+	    List<BuildingDTO> results = new ArrayList<>();
+		Map<String, Object> params = convertDataToMap(builder);
+
+	    List<BuildingEntity> buildingEntities = buildingRepository.findAll(builder,params);
+	    for(BuildingEntity item : buildingEntities){
+            BuildingDTO buildingDTO = buildingConverter.convertToDTO(item);
+            results.add(buildingDTO);
+
+        }
+        return results;
+    }
+
+	private Map<String, Object> convertDataToMap(BuildingSearchBuilder builder) {
+		Map<String,Object> results = new HashMap<>();
+		try{
+			Field[] fields = BuildingSearchBuilder.class.getDeclaredFields();
+			for(Field field : fields){
+				if(!field.getName().startsWith("areaRent") && !field.getName().equals("types")
+				&& !field.getName().startsWith("costRent") ){
+					field.setAccessible(true);
+					results.put(field.getName(), field.get(builder));
+				}
+			}
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+			return  null;
+		}
+
+		return results;
+	}
+
 	@Override
 	public Object findId(long id) {
 		BuildingDTO buildingDTO = new BuildingDTO();

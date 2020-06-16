@@ -6,11 +6,14 @@ com\laptrinhjavaweb\annotation\Entity.class
 com\laptrinhjavaweb\annotation\Table.class
 com\laptrinhjavaweb\dto\CustomerDTO.class
 com\laptrinhjavaweb\repository\impl\SimpleJpaRepository.class
+com\laptrinhjavaweb\builder\BuildingSearchBuilder$1.class
 com\laptrinhjavaweb\repository\impl\BuildingRepository.class
 com\laptrinhjavaweb\service\ICustomerService.class
 com\laptrinhjavaweb\service\impl\CustomerService.class
 com\laptrinhjavaweb\repository\impl\CustomerRepository.class
+com\laptrinhjavaweb\builder\BuildingSearchBuilder$Builder.class
 com\laptrinhjavaweb\service\impl\BuildingService.class
+com\laptrinhjavaweb\builder\BuildingSearchBuilder.class
 com\laptrinhjavaweb\converter\BuildingConverter.class
 com\laptrinhjavaweb\service\IBuildingService.class
 com\laptrinhjavaweb\entity\CustomerEntity.class
